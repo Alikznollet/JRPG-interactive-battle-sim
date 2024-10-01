@@ -11,5 +11,17 @@ config_version=5
 [application]
 
 config/name="JRPG-interactive-sim"
+run/main_scene="res://scene/gui/main_menu/choice_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Transition="*res://common/tools/transition.gd"
+
+[file_customization]
+
+folder_colors={
+"res://common/": "teal",
+"res://scene/": "orange"
+}

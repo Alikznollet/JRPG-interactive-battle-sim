@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://x6qc7qrqk8fc"]
+
+[ext_resource type="Script" path="res://scene/gui/main_menu/choice_menu.gd" id="1_vrgxx"]
+
+[node name="ChoiceMenu" type="CanvasLayer"]
+script = ExtResource("1_vrgxx")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
