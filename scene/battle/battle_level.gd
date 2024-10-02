@@ -1,11 +1,25 @@
 extends Node2D
 class_name BattleLevel
 
+var turn_queue: TurnQueue = TurnQueue.new()
 var entities: Array[BattleEntity] = []
-var turn_manager: TurnManager = TurnManager.new()
 
 func _ready() -> void:
-	turn_manager = TurnManager.new()
+	entities.append_array(%Entities.get_children())
+	entities.sort_custom(_sort_speed)
+	turn_queue.initialize_starting_events(entities)
 	
-	turn_manager.instantiate_entities(entities)
-	turn_manager.start_turn_cycle()
+	next_turn()
+	
+func next_turn() -> void:
+	var event: Event = turn_queue.get_next_event()
+	event.start_event()
+	
+	await event.event_ended
+
+	next_turn()
+
+func _sort_speed(a: BattleEntity, b: BattleEntity) -> bool:
+	if a.speed > b.speed:
+		return true
+	return false
