@@ -70,8 +70,12 @@ func start_turn_cycle() -> void:
 func _next_turn() -> void:
 	var current_entity: BattleEntity = entities[current_entity_index]
 	
+	current_entity.make_move_selection()
+	
 	await current_entity.move_locked_in
 	print(current_entity)
+	print(current_entity.current_action.name)
+	print(current_entity.current_action.type)
 	
 	var turn_state: TurnState = _check_turn_state()
 	
