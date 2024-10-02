@@ -5,7 +5,7 @@ var gui_open: bool = false
 
 func _process(delta: float) -> void:
 	if gui_open:
-		if Input.is_action_just_pressed("left_mouse"):
+		if Input.is_action_just_pressed("space"):
 			current_action = Action.new()
 			current_action.name = "player"
 			move_locked_in.emit()

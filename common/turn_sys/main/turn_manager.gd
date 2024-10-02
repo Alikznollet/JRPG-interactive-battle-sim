@@ -14,11 +14,14 @@ func instantiate_entities(starter_entities: Array[BattleEntity]) -> void:
 
 func add_entity(entity: BattleEntity) -> void:
 	entities.append(entity)
+	$Entities.add_child(entity)
 	
 	if entity is BattleAlly:
 		allies.append(entity)
+		entity.global_position = $PlayerPositions.get_children()[allies.find(entity)].global_position
 	elif entity is BattleEnemy:
 		enemies.append(entity)
+		entity.global_position = $EnemyPositions.get_children()[enemies.find(entity)].global_position
 		
 func remove_entity(entity: BattleEntity) -> void:
 	var index: int = entities.find(entity)
@@ -68,18 +71,20 @@ func start_turn_cycle() -> void:
 	_next_turn()
 	
 func _next_turn() -> void:
+	await get_tree().create_timer(0.5).timeout
 	var current_entity: BattleEntity = entities[current_entity_index]
+	print(current_entity)
 	
 	current_entity.make_move_selection()
 	
 	await current_entity.move_locked_in
-	print(current_entity)
 	print(current_entity.current_action.name)
 	print(current_entity.current_action.type)
 	
 	var turn_state: TurnState = _check_turn_state()
 	
 	if turn_state == TurnState.ONGOING:
+		_next_index()
 		_next_turn()
 	else:
 		get_tree().quit()

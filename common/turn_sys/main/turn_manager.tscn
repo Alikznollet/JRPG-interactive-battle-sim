@@ -4,3 +4,26 @@
 
 [node name="TurnManager" type="Node2D"]
 script = ExtResource("1_2h4un")
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="PlayerPositions" type="Node2D" parent="."]
+
+[node name="Player1pos" type="Marker2D" parent="PlayerPositions"]
+position = Vector2(154, 194)
+
+[node name="Player1pos2" type="Marker2D" parent="PlayerPositions"]
+position = Vector2(104, 249)
+
+[node name="EnemyPositions" type="Node2D" parent="."]
+
+[node name="Enemy1pos" type="Marker2D" parent="EnemyPositions"]
+position = Vector2(536, 227)
+
+[node name="Enemy2pos" type="Marker2D" parent="EnemyPositions"]
+position = Vector2(474, 161)
+
+[node name="Enemy3pos" type="Marker2D" parent="EnemyPositions"]
+position = Vector2(472, 291)
+
+[node name="Entities" type="Node2D" parent="."]
