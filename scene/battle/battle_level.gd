@@ -16,6 +16,9 @@ func next_turn() -> void:
 	event.start_event()
 	
 	await event.event_ended
+	await get_tree().create_timer(0.5).timeout # THIS IS TEMPORARY TO AVOID CHAINED INPUTS
+	
+	turn_queue.add_to_queue(event)
 
 	next_turn()
 

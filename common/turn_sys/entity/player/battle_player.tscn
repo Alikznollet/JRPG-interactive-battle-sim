@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp2xb8wcse2kr"]
+[gd_scene load_steps=4 format=3 uid="uid://cp2xb8wcse2kr"]
 
 [ext_resource type="Script" path="res://common/turn_sys/entity/player/battle_player.gd" id="1_24y43"]
 [ext_resource type="Texture2D" uid="uid://cgg0uh025d0ps" path="res://assets/entities/players/luigi.png" id="2_lo1wy"]
+[ext_resource type="PackedScene" uid="uid://d10et3rb25hpf" path="res://scene/gui/BATTLE/battle_choice_menu.tscn" id="3_wqg3c"]
 
 [node name="BattlePlayer" type="Area2D"]
 script = ExtResource("1_24y43")
@@ -10,3 +11,11 @@ script = ExtResource("1_24y43")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_lo1wy")
+
+[node name="BattleChoiceMenu" parent="." instance=ExtResource("3_wqg3c")]
+offset_left = -45.0
+offset_top = -61.0
+offset_right = -45.0
+offset_bottom = -61.0
+
+[connection signal="battle_choice_made" from="BattleChoiceMenu" to="." method="_on_battle_choice_menu_battle_choice_made"]
