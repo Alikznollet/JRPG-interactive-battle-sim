@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cp2xb8wcse2kr"]
 
-[ext_resource type="Script" path="res://common/turn_sys/entity/player/battle_player.gd" id="1_24y43"]
+[ext_resource type="Script" path="res://common/entity/player/battle_player.gd" id="1_24y43"]
 [ext_resource type="Texture2D" uid="uid://cgg0uh025d0ps" path="res://assets/entities/players/luigi.png" id="2_lo1wy"]
 [ext_resource type="PackedScene" uid="uid://d10et3rb25hpf" path="res://scene/gui/BATTLE/battle_choice_menu.tscn" id="3_wqg3c"]
 

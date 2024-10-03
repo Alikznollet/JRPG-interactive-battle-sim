@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq3u3hcirn0pv"]
 
-[ext_resource type="Script" path="res://common/turn_sys/entity/battle_enemy.gd" id="1_uchdu"]
+[ext_resource type="Script" path="res://common/entity/battle_enemy.gd" id="1_uchdu"]
 [ext_resource type="Texture2D" uid="uid://b6x8582gt1egy" path="res://assets/entities/enemies/bowser.png" id="2_f4hyc"]
 
 [node name="BasicEnemy" type="Area2D"]

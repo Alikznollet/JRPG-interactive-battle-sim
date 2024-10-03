@@ -2,6 +2,7 @@ extends Node2D
 class_name BattleLevel
 
 var turn_queue: TurnQueue = TurnQueue.new()
+var action_queue: ActionQueue = ActionQueue.new()
 var entities: Array[BattleEntity] = []
 
 func _ready() -> void:
@@ -16,9 +17,14 @@ func next_turn() -> void:
 	event.start_event()
 	
 	await event.event_ended
-	await get_tree().create_timer(0.5).timeout # THIS IS TEMPORARY TO AVOID CHAINED INPUTS
 	
-	turn_queue.add_to_queue(event)
+	# temporary way of adding the action
+	action_queue.add_to_queue(event.event_entity.current_action)
+	
+	await action_queue.execute_actions()
+	print("actions finished")
+	
+	turn_queue.add_to_queue(event) # THIS WILL 
 
 	next_turn()
 
