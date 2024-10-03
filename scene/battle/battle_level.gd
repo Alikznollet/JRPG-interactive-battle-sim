@@ -24,7 +24,7 @@ func next_turn() -> void:
 	await action_queue.execute_actions()
 	print("actions finished")
 	
-	turn_queue.add_to_queue(event) # THIS WILL 
+	turn_queue.add_to_queue(event) # THIS WILL ADD THE DEFAULT TURN EVENT OVER AND OVER
 
 	next_turn()
 

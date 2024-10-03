@@ -19,4 +19,3 @@ func execute_actions() -> void:
 		var action: Action = queue.pop_front()
 		action.execute()
 		await action.finished
-	print("executed")

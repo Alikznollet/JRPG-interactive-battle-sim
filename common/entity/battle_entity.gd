@@ -6,7 +6,10 @@ var current_action: Action
 
 @export var default_event: Event
 @export var speed: float = 5.00
-@export var health: float = 20.00
+@export var health: float = 20.00:
+	set(new):
+		health = new
+		print_debug(health)
 
 func _ready() -> void:
 	default_event.event_entity = self
